@@ -119,7 +119,7 @@
     zipCode.value = zipCode.value.slice(0, 7)
     const addressList = await fetchAddressList(zipCode.value)
     const filteredList = addressList.filter(data => data.zip_code.startsWith(zipCode.value))
-    if(filteredList.length === 1) {
+    if(filteredList.length === 1 && zipCode.value.length === 7) {
       const data = filteredList[0]
       reflectAddressData(data)
       return
